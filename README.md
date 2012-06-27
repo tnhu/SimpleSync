@@ -7,6 +7,21 @@ Simple Sublime Text 2 plugin for SSH and local syncing.
 - Currently support MacOS and Linux.
 - SSH synchronization is done via scp, your system must have SSH public-key authentication enabled.
 
+### Installation
+
+#### Manually
+
+Clone this project into your ST2 Packages foler, for example:
+
+``` bash
+cd "/Users/tnhu/Library/Application Support/Sublime Text 2/Packages"
+git clone https://github.com/tnhu/SimpleSync.git
+```
+
+#### Using ST2 Package Control
+
+Search for SimpleSync in ST2 Package Control and install it.
+
 ### Settings
 
 When you finish installing SimpleSync, its settings can be found in Preferences > Package Settings > SimpleSync Settings
@@ -29,4 +44,4 @@ Sample settings:
 }
 ```
 
-Files are saved to remote server when you save them locally. In case of "local", they are copied to "remote" folder which is on the same machine.
+Files are saved to remote server automatically when you save them locally. In case of "local" syncing, they are copied to "remote" folder which is on the same machine.
