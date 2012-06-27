@@ -4,9 +4,10 @@
 # Help the orphans, street children, disadvantaged people
 #   and physically handicapped in Vietnam (http://bit.ly/LPgJ1m)
 #
-# Copyright (c) Tan Nhu, tnhu AT me . COM
+# @copyright (c) 2012 Tan Nhu, tnhu AT me . COM
 # @version 0.0.1
 # @licence MIT
+# @link https://github.com/tnhu/SimpleSync
 #
 import sublime
 import sublime_plugin

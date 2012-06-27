@@ -1,13 +1,3 @@
 {
-  "sync": [{
-    "type"     : "ssh",
-    "host"     : "tnhu-ld",
-    "username" : "tnhu",
-    "local"    : "/Users/tnhu/workspace/trunk",
-    "remote"   : "/home/tnhu/workspace/trunk"
-  }, {
-    "type"     : "local",
-    "local"    : "/Users/tnhu/Library/Application Support/Sublime Text 2/Packages/SimpleSync",
-    "remote"   : "/Users/tnhu/Dropbox/projects/SimpleSync"
-  }]
+  "sync": []
 }
