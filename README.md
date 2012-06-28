@@ -11,7 +11,7 @@ Simple Sublime Text 2 plugin for SSH and local syncing.
 
 #### Manually
 
-Clone this project into your ST2 Packages foler, for example:
+Clone this project into your ST2 Packages folder, for example:
 
 ``` bash
 cd "/Users/tnhu/Library/Application Support/Sublime Text 2/Packages"
