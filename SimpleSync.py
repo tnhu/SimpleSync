@@ -61,12 +61,11 @@ class ScpCopier(threading.Thread):
     threading.Thread.__init__(self)
 
   def run(self):
-    arg = ["-r", "-P", self.port]
     remote  = self.username + "@" + self.host + ":" + self.remote_file
 
     print "SimpleSync: ", self.local_file, " -> ", self.remote_file
 
-    for line in runProcess(["scp", *arg, self.local_file, remote]):
+    for line in runProcess(["scp", "-r", "-P", self.port , self.local_file, remote]):
       print line,
 
 #
