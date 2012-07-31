@@ -96,6 +96,6 @@ class SimpleSync(sublime_plugin.EventListener):
         remote_file = local_file.replace(item["local"], item["remote"])
 
         if (item["type"] == "ssh"):
-          ScpCopier(item["host"], item["username"], local_file, remote_file).start()
+          ScpCopier(item["host"], item["username"], local_file, remote_file, port=item["port"]).start()
         elif (item["type"] == "local"):
           LocalCopier(local_file, remote_file).start()
