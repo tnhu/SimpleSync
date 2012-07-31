@@ -51,8 +51,9 @@ def getSyncItem(local_file):
 # ScpCopier does actual copying using threading to avoid UI blocking
 #
 class ScpCopier(threading.Thread):
-  def __init__(self, host, username, local_file, remote_file):
+  def __init__(self, host, username, local_file, remote_file, port=21):
     self.host        = host
+    self.port        = port
     self.username    = username
     self.local_file  = local_file
     self.remote_file = remote_file
@@ -60,11 +61,12 @@ class ScpCopier(threading.Thread):
     threading.Thread.__init__(self)
 
   def run(self):
-    arg  = self.username + "@" + self.host + ":" + self.remote_file
+    arg = ["-r", "-P", self.port]
+    remote  = self.username + "@" + self.host + ":" + self.remote_file
 
     print "SimpleSync: ", self.local_file, " -> ", self.remote_file
 
-    for line in runProcess(["scp", self.local_file, arg]):
+    for line in runProcess(["scp", arg, self.local_file, remote]):
       print line,
 
 #
