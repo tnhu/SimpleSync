@@ -66,7 +66,7 @@ class ScpCopier(threading.Thread):
 
     print "SimpleSync: ", self.local_file, " -> ", self.remote_file
 
-    for line in runProcess(["scp", arg, self.local_file, remote]):
+    for line in runProcess(["scp", *arg, self.local_file, remote]):
       print line,
 
 #
