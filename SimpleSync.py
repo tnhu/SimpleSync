@@ -51,8 +51,9 @@ def getSyncItem(local_file):
 # ScpCopier does actual copying using threading to avoid UI blocking
 #
 class ScpCopier(threading.Thread):
-  def __init__(self, host, username, local_file, remote_file):
+  def __init__(self, host, username, local_file, remote_file, port=22):
     self.host        = host
+    self.port        = port
     self.username    = username
     self.local_file  = local_file
     self.remote_file = remote_file
@@ -60,11 +61,11 @@ class ScpCopier(threading.Thread):
     threading.Thread.__init__(self)
 
   def run(self):
-    arg  = self.username + "@" + self.host + ":" + self.remote_file
+    remote  = self.username + "@" + self.host + ":" + self.remote_file
 
     print "SimpleSync: ", self.local_file, " -> ", self.remote_file
 
-    for line in runProcess(["scp", self.local_file, arg]):
+    for line in runProcess(["scp", "-r", "-P", str(self.port) , self.local_file, remote]):
       print line,
 
 #
@@ -95,6 +96,6 @@ class SimpleSync(sublime_plugin.EventListener):
         remote_file = local_file.replace(item["local"], item["remote"])
 
         if (item["type"] == "ssh"):
-          ScpCopier(item["host"], item["username"], local_file, remote_file).start()
+          ScpCopier(item["host"], item["username"], local_file, remote_file, port=item["port"]).start()
         elif (item["type"] == "local"):
           LocalCopier(local_file, remote_file).start()
