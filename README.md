@@ -33,7 +33,7 @@ Sample settings:
   "sync": [{
     "type"     : "ssh",
     "host"     : "tnhu-ld",
-    "port"     : "13241",
+    "port"     : "22",
     "username" : "tnhu",
     "local"    : "/Users/tnhu/workspace/trunk",
     "remote"   : "/home/tnhu/workspace/trunk"
