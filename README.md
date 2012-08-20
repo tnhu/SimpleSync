@@ -47,6 +47,11 @@ Sample settings:
 
 Files are saved to remote server automatically when you save them locally. In case of "local" syncing, they are copied to "remote" folder which is on the same machine.
 
+## Contributors
+
+* [tnhu](https://github.com/tnhu)
+* [gfreezy](https://github.com/gfreezy)
+
 ## License
 
 Copyright (c) 2009-2012 Tan Nhu
