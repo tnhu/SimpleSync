@@ -30,17 +30,16 @@ def runProcess(cmd):
     if (retcode is not None):
       break
 
-# Populate settings
-settings = sublime.load_settings("SimpleSync.sublime-settings")
-sync     = settings.get("sync")
-
 #
 # Get sync item(s) for a file
 # @param local_file full path of a local file
 # @return sync item(s)
 #
 def getSyncItem(local_file):
-  global sync
+  # Populate settings
+  settings = sublime.load_settings("SimpleSync.sublime-settings")
+  sync     = settings.get("sync")
+
   ret = []
 
   for item in sync:
