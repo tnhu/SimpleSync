@@ -1,5 +1,5 @@
 #
-# Sublime Text 2 SimpleSync plugin
+# Sublime Text SimpleSync plugin
 #
 # Help the orphans, street children, disadvantaged people
 #   and physically handicapped in Vietnam (http://bit.ly/LPgJ1m)
@@ -9,6 +9,7 @@
 # @licence MIT
 # @link https://github.com/tnhu/SimpleSync
 #
+from __future__ import print_function, unicode_literals
 import sublime
 import sublime_plugin
 import subprocess
@@ -24,14 +25,10 @@ def runProcess(cmd):
   while (True):
     retcode = p.poll()             #returns None while subprocess is running
     line    = p.stdout.readline()
-    yield line
+    yield line.decode('utf-8')
 
     if (retcode is not None):
       break
-
-# Populate settings
-settings = sublime.load_settings("SimpleSync.sublime-settings")
-sync     = settings.get("sync")
 
 #
 # Get sync item(s) for a file
@@ -39,6 +36,10 @@ sync     = settings.get("sync")
 # @return sync item(s)
 #
 def getSyncItem(local_file):
+  # Populate settings
+  settings = sublime.load_settings("SimpleSync.sublime-settings")
+  sync     = settings.get("sync")
+
   ret = []
 
   for item in sync:
@@ -63,10 +64,10 @@ class ScpCopier(threading.Thread):
   def run(self):
     remote  = self.username + "@" + self.host + ":" + self.remote_file
 
-    print "SimpleSync: ", self.local_file, " -> ", self.remote_file
+    print("SimpleSync: ", self.local_file, " -> ", remote)
 
     for line in runProcess(["scp", "-r", "-P", str(self.port) , self.local_file, remote]):
-      print line,
+      print(line, end='')
 
 #
 # LocalCopier does local copying using threading to avoid UI blocking
@@ -78,10 +79,10 @@ class LocalCopier(threading.Thread):
     threading.Thread.__init__(self)
 
   def run(self):
-    print "SimpleSync: ", self.local_file, " -> ", self.remote_file
+    print("SimpleSync: ", self.local_file, " -> ", self.remote_file)
 
     for line in runProcess(['cp', self.local_file, self.remote_file]):
-      print line,
+      print(line, end='')
 
 #
 # Subclass sublime_plugin.EventListener

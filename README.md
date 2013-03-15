@@ -1,6 +1,6 @@
 # SimpleSync
 
-Simple Sublime Text 2 plugin for SSH and local syncing.
+Simple Sublime Text 2/3 plugin for SSH and local syncing.
 
 ## Before you start
 
@@ -11,6 +11,7 @@ Simple Sublime Text 2 plugin for SSH and local syncing.
 
 ### Manually
 
+* Sublime Text 2
 Clone this project into your ST2 Packages folder, for example:
 
 ``` bash
@@ -18,13 +19,21 @@ cd "/Users/tnhu/Library/Application Support/Sublime Text 2/Packages"
 git clone https://github.com/tnhu/SimpleSync.git
 ```
 
-### Using ST2 Package Control
+* Sublime Text 3
 
-Search for SimpleSync in ST2 Package Control and install it.
+``` bash
+cd "/Users/tnhu/Library/Application Support/Sublime Text 3/Packages"
+git clone https://github.com/tnhu/SimpleSync.git
+```
+
+### Using ST2/3 Package Control
+
+Search for SimpleSync in ST2/3 Package Control and install it.
 
 ## Settings
 
-When you finish installing SimpleSync, its settings can be found in Preferences > Package Settings > SimpleSync Settings
+When you finish installing SimpleSync, its settings can be found in Preferences > Package Settings > SimpleSync > Settings - Default.
+And you should put your custom settings in Preferences > Package Settings > SimpleSync > Settings - User.
 
 Sample settings:
 

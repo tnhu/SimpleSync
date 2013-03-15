@@ -1,17 +1,31 @@
-[{
-  "caption": "Preferences",
-  "mnemonic": "n",
-  "id": "preferences",
-  "children": [{
-    "caption": "Package Settings",
-    "mnemonic": "P",
-    "id": "package-settings",
-    "children": [{
-      "command": "open_file",
-      "args": {
-        "file": "${packages}/SimpleSync/SimpleSync.sublime-settings"
-      },
-      "caption": "SimpleSync Settings"
-    }]
-  }]
-}]
+[
+  {
+    "caption": "Preferences",
+    "mnemonic": "n",
+    "id": "preferences",
+    "children": [
+      {
+        "caption": "Package Settings",
+        "mnemonic": "P",
+        "id": "package-settings",
+        "children": [
+          {
+            "caption": "SimpleSync",
+            "children": [
+              {
+                "command": "open_file",
+                "args": {"file": "${packages}/SimpleSync/SimpleSync.sublime-settings"},
+                "caption": "Settings - Default"
+              },
+              {
+                "command": "open_file",
+                "args": {"file": "${packages}/User/SimpleSync.sublime-settings"},
+                "caption": "Settings - User"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
