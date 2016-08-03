@@ -1,3 +1,5 @@
+*This project has a new maintainer [hydralien](https://github.com/hydralien/SimpleSync). Issues and PRs, please go to [hydralien's repository](https://github.com/hydralien/SimpleSync)*
+
 # SimpleSync
 
 Simple Sublime Text 2/3 plugin for SSH and local syncing.
